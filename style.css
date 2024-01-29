@@ -15,6 +15,8 @@
     --sidebar-menuitem-font-size: 1.1em;
     --sidebar-menuitem-font-weight: bold;
 
+    --sidebar-color: #5A855F;
+
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -39,28 +41,26 @@
     grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 26;
-
-    background-color: rgb(90, 90, 190);
 }
 
 .header {
     grid-column-start: 5;
     grid-column-end: 21;
     grid-row-start: 1;
-    grid-row-end: 5;
+    grid-row-end: 6;
 }
 
 .projects {
     grid-column-start: 5;
     grid-column-end: 16;
-    grid-row-start: 5;
+    grid-row-start: 6;
     grid-row-end: 26;
 }
 
 .announcements {
     grid-column-start: 16;
     grid-column-end: 22;
-    grid-row-start: 5;
+    grid-row-start: 6;
     grid-row-end: 16;
 }
 
@@ -74,7 +74,7 @@
 
 /* ----------- Sidebar Area--------------- */  
 .sidebar {
-    background-color: #137A63;
+    background-color: var(--sidebar-color);
     display: flex;
     flex-direction: column;
 
@@ -163,3 +163,74 @@
         align-items: center;
         gap: var(--sidebar-icon-text-gap);
     }
+
+/* --------- Header Section----------- */
+.header {
+    display: grid;
+    grid-template-columns: repeat(10,10%);
+    grid-template-rows: repeat(10,10%);
+}
+
+/* Search Bar */
+    .header .search.container { 
+        outline: 1px dashed black;
+        grid-column-start: 1;
+        grid-column-end: 7;
+        grid-row-start: 1;
+        grid-row-end: 6;
+        
+        /* display: flex; */
+    }
+
+    .search.container{
+        display: flex;
+        padding: 10px;
+        position: relative;
+    }
+
+    .search.container svg {
+        outline: white dashed 1px;
+        display: block;
+        height: 100%;
+        width: 15%;
+        flex:.1;
+    }
+
+    .search.container .search-bar {
+        outline: white dashed 1px;
+        flex: 1;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    #searchinput {
+        width: 90%;
+        height: 50%;
+        border: transparent;
+        border-radius: 2em;
+    }
+
+
+
+
+
+
+.header .profile {
+    outline: 1px dashed black;
+    grid-column-start: 7;
+    grid-column-end: 11;
+    grid-row-start: 1;
+    grid-row-end: 6;
+}
+
+.header .greeting{
+    outline: 1px dashed black;
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 6;
+    grid-row-end: 11;
+}
+
