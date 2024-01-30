@@ -15,7 +15,28 @@
     --sidebar-menuitem-font-size: 1.1em;
     --sidebar-menuitem-font-weight: bold;
 
-    --sidebar-color: #5A855F;
+    --sidebar-color: #c4d8eb;
+    --sidebar-text-color: #2D3748;
+
+
+    --header-left-align: 2vw;
+    --header-color: #c4d8eb;
+    --searchbar-color: #FFFFFF;
+
+    --actions-button-color: #3276C3; 
+    --actions-button-text-color: white;
+
+    --projects-left-align: 2vw;
+    --projects-top-padding:3vh;
+    --projects-bottom-padding:5vh;
+    --card-background-color:white;
+    --card-side-color:rgb(255, 193, 78);
+    --card-subtext-color: grey;
+    --card-icon-color:rgb(53, 53, 53);
+
+    --announcements-left-padding: 0vw;
+    --announcements-top-padding: 2vh;
+    --announcements-bottom-padding: 5vh;
 
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -95,11 +116,11 @@
 
     font-weight: bold;
     font-size: 1.6em;
-    color: white;
+    color: var(--sidebar-text-color);
 }
 
 .logo .icon{
-    outline: 1px white dashed;
+    outline: 1px black dashed;
     width: var(--sidebar-icon-width);
     height: var(--sidebar-icon-height);
 }
@@ -113,7 +134,7 @@
         flex-direction: column;
         gap: var(--sidebar-menuitem-gap);
 
-        color: white;
+        color: var(--sidebar-text-color);
         list-style-type: none;
         padding-left: var(--sidebar-left-align);
         margin-top: 3vh;
@@ -124,7 +145,7 @@
     }
 
     .pages ul .icon {
-        outline: white dashed 1px;
+        outline: black dashed 1px;
         width: var(--sidebar-icon-width);
         height: var(--sidebar-icon-height);
     }
@@ -143,7 +164,7 @@
         flex-direction: column;
         gap: var(--sidebar-menuitem-gap);
 
-        color: white;
+        color: var(--sidebar-text-color);
         list-style-type: none;
         padding-left: var(--sidebar-left-align);
         margin-top: 5vh;
@@ -153,7 +174,7 @@
     }
 
     .settings ul .icon {
-        outline: white dashed 1px;
+        outline: black dashed 1px;
         width: var(--sidebar-icon-width);
         height: var(--sidebar-icon-height);
     }
@@ -169,48 +190,69 @@
     display: grid;
     grid-template-columns: repeat(10,10%);
     grid-template-rows: repeat(10,10%);
+    background-color: var(--header-color);
+    position: relative;
+    box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.34);
 }
 
-/* Search Bar */
+    /*----- Search Bar --------*/
     .header .search.container { 
         outline: 1px dashed black;
         grid-column-start: 1;
         grid-column-end: 7;
         grid-row-start: 1;
-        grid-row-end: 6;
+        grid-row-end: 5;
         
         /* display: flex; */
     }
 
     .search.container{
         display: flex;
-        padding: 10px;
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+        padding-left: var(--header-left-align);
         position: relative;
     }
 
-    .search.container svg {
+    .search.container .searchicon {
         outline: white dashed 1px;
         display: block;
         height: 100%;
         width: 15%;
         flex:.1;
-    }
-
-    .search.container .search-bar {
-        outline: white dashed 1px;
-        flex: 1;
 
         display: flex;
         align-items: center;
         justify-content: center;
+    }
 
+    .search.container .search-bar {
+        /* outline: white dashed 1px; */
+
+        flex: 1;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+    }
+
+    #searchicon {
+        width: 40%;
+        height: 40%;
+    }
+
+    #searchicon .path {
+        
+        stroke-width: 2;
     }
 
     #searchinput {
-        width: 90%;
+        width: 100%;
         height: 50%;
         border: transparent;
         border-radius: 2em;
+        background-color: var(--searchbar-color);
     }
 
 
@@ -218,19 +260,229 @@
 
 
 
-.header .profile {
-    outline: 1px dashed black;
-    grid-column-start: 7;
-    grid-column-end: 11;
-    grid-row-start: 1;
-    grid-row-end: 6;
+    /* -----Profile--------- */
+    
+
+    .header .profile {
+        outline: 1px dashed black;
+        grid-column-start: 7;
+        grid-column-end: 11;
+        grid-row-start: 1;
+        grid-row-end: 5;
+
+        display: flex;
+        outline: white 1x dashed;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 5%;
+
+        padding-right: 10% ;
+    }
+
+    .profile .notification{
+        outline: white 1px dashed;
+        width: 15%;
+        height: 70%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #bellicon{
+        width: 50%;
+        height: 50%;
+    }
+
+    .profile .user{
+        outline: white 1px dashed;
+        width: 15%;
+        height: 70%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #usericon{
+        width: 100%;
+        height: 100%;
+    }
+
+
+    .profile #username{
+        font-weight:bolder;
+        font-size: 1.1em;
+    }
+
+    
+
+/* ----------Greeting-------- */
+
+    .header .greeting{
+        outline: 1px dashed black;
+        grid-column-start: 1;
+        grid-column-end: 6;
+        grid-row-start: 5;
+        grid-row-end: 11;
+
+        display: flex;
+        align-items: center;
+        gap: 1vw;
+
+        padding-left: var(--header-left-align);
+        
+    }
+
+    .greeting .user{
+        /* outline: white 1px dashed; */
+        height: 90%;
+    } 
+
+    .greeting-text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5vh;
+    }
+
+    .greeting-text :first-child{
+        font-weight: bold;
+        font-size: 0.7em;
+    }
+
+    .greeting-text :nth-child(2){
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+    
+
+    .header .actions{
+        grid-column-start: 6;
+        grid-column-end: 11;
+        grid-row-start: 5;
+        grid-row-end: 11;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3vw;
+    }
+
+    .actions button {
+        background-color: var(--actions-button-color);
+        color: var(--actions-button-text-color);
+        border: transparent;
+        border-radius: 2em;
+
+        height: 38%;
+        width: 18%;
+        
+    }
+
+/*-------------Projects--------------- */
+.projects {
+    display: flex;
+    flex-direction: column;
+    padding-left: var(--projects-left-align);
+    padding-right: var(--projects-left-align);
+    padding-bottom: var(--projects-bottom-padding);
+    padding-top: var(--projects-top-padding);
 }
 
-.header .greeting{
-    outline: 1px dashed black;
+.projects #title{
+    font-size: 1.1em;
+    font-weight: bold;
+    padding-bottom: 1.5vh;
+}
+
+.card.container.grid{
+    display: flex;
+    /* outline: 1px white dashed; */
+    width: 100%;
+    height: 100%;
+}
+
+.col {
+    outline: pink 1px dashed;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+.col .item{
+    /* outline: white 1px dashed; */
+    background-color: var(--card-background-color);
+    border-radius: 0.5em;
+    width: 93%;
+    height: 40%;
+    display: grid;
+    overflow: hidden;
+
+    grid-template-columns: repeat(50,2%);
+    grid-template-rows: repeat(50,2%);
+}
+
+.item .text{
+    grid-column-start: 5;
+    grid-column-end: 45;
+    grid-row-start: 10;
+    grid-row-end: 35;
+    /* outline: black 1px dashed; */
+}
+
+.item .text :first-child{
+    font-weight: bold;
+    font-size: 0.8em;
+}
+.item .text :nth-child(2) {
+    padding-top: 1%;
+    font-size: 0.7em;
+    color: var(--card-subtext-color);
+}
+
+.item .sidecolor{
     grid-column-start: 1;
-    grid-column-end: 6;
-    grid-row-start: 6;
-    grid-row-end: 11;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 51;
+    background-color: var(--card-side-color);
 }
 
+.item .icons{
+    /* outline: black 1px dashed; */
+    grid-column-start: 30;
+    grid-column-end: 50;
+    grid-row-start: 39;
+    grid-row-end: 49;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.icons svg{
+    width: 18%;
+    height: 100%;
+    fill: var(--card-icon-color);
+}
+
+/* -------Announcements--------- */
+
+.announcements {
+    padding-left: var(--announcements-left-padding);
+}
+
+.announcements #title{
+    padding-top: var(--announcements-top-padding);
+    padding-bottom: 1.5vh;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.announcements .card{
+    outline: black 1px dashed;
+    width: 90%;
+    height: 90%;
+}
