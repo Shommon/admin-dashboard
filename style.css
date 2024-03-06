@@ -9,46 +9,61 @@
     --sidebar-icon-width: 2vw;
     --sidebar-icon-height: 2vw;
     --sidebar-icon-text-gap: 1vw;
-    --sidebar-logo-width: 3vw;
-    --sidebar-logo-height: 3vw;
+    --sidebar-logo-width: 2.2vw;
+    --sidebar-logo-height: 2.2vw;
 
 
     --sidebar-menuitem-gap: 2vh;
     --sidebar-menuitem-font-size: 1.0em;
     --sidebar-menuitem-font-weight: bold;
 
-    --sidebar-color: #c4d8eb;
-    --sidebar-text-color: white;
-    --sidebar-logo-color: white;
-    --sidebar-icon-color: white;
+    --sidebar-color: #4c0519;
+    --sidebar-text-color: #fff1f2;
+    --sidebar-logo-color: #fff1f2;
+    --sidebar-icon-color: #fff1f2;
 
 
     --header-left-align: 2vw;
-    --header-color: #c4d8eb;
-    --searchbar-color: #FFFFFF;
+    --header-color: #fff1f2;
+    --searchbar-color: #fecdd3;
+    --search-icon-color: #4c0519;
+    --search-icon-size: 1.5vw;
 
-    --actions-button-color: #3276C3; 
-    --actions-button-text-color: white;
+    --actions-button-color: #4c0519; 
+    --actions-button-text-color: #fff1f2;
 
     --projects-left-align: 2vw;
     --projects-top-padding:3vh;
     --projects-bottom-padding:5vh;
-    --card-background-color:white;
-    --card-side-color:rgb(255, 193, 78);
-    --card-subtext-color: grey;
-    --card-icon-color:rgb(53, 53, 53);
+    --projects-background-color: #fecdd3;
+
+    --card-background-color:#fff1f2;
+    --card-side-color:#62d5c7;
+    --card-title-color:#4c0519;
+    --card-subtext-color: #881337;
+    --card-icon-color:#4c0519;
     --card-border-radius: 0.5em;
 
     --announcements-left-padding: 1vw;
     --announcements-top-padding: 2vh;
+    --annoucements-background-color: #fecdd3;
+    --announcements-desc-size: 0.55em;
+    --announcements-text-size: 0.7em;
+    --greeting-text-color: #4c0519;
     /* --announcements-bottom-padding: 5vh; */
 
     --trending-left-padding: 1vw;
     --trending-top-padding: 2vh;
     --trending-bottom-padding:5vh;
+    --trending-background-color: #fecdd3;
 
 
-    --trending-icon-size: 3vw;
+    --trending-icon-size: 2.5vw;
+    --trending-svg-size: 70%;
+    --trending-icon-left-padding: 1vw;
+
+    --trending-text-size:0.7em;
+    --trending-desc-size:0.7em;
 
 
     font-family: Arial, Helvetica, sans-serif;
@@ -62,13 +77,6 @@
     grid-template-rows: repeat(100, 1vh);
 
 }
-
-.grid-item {
-    background-color: lightblue;
-    outline: 1px dashed black;
-}
-
-
 
 .sidebar {
     grid-column-start: 1;
@@ -116,7 +124,6 @@
 }
 
 .logo {
-    outline: 1px dashed black;
     display: flex;
     align-items: center;
     gap: var(--sidebar-icon-text-gap);
@@ -133,7 +140,6 @@
 }
 
 .logo .icon{
-    outline: 1px black dashed;
     width: var(--sidebar-logo-width);
     height: var(--sidebar-logo-height);
 }
@@ -145,7 +151,6 @@
 
 /* Pages Section */
     .pages ul{
-        outline: 1px dashed black;
         display: flex;
         flex-direction: column;
         gap: var(--sidebar-menuitem-gap);
@@ -161,7 +166,6 @@
     }
 
     .pages ul .icon {
-        outline: black dashed 1px;
         width: var(--sidebar-icon-width);
         height: var(--sidebar-icon-height);
     }
@@ -179,7 +183,6 @@
 
 /* Settings Section */
     .settings ul{
-        outline: 1px dashed black;
         display: flex;
         flex-direction: column;
         gap: var(--sidebar-menuitem-gap);
@@ -194,7 +197,6 @@
     }
 
     .settings ul .icon {
-        outline: black dashed 1px;
         width: var(--sidebar-icon-width);
         height: var(--sidebar-icon-height);
     }
@@ -221,13 +223,11 @@
 
     /*----- Search Bar --------*/
     .header .search.container { 
-        outline: 1px dashed black;
         grid-column-start: 1;
         grid-column-end: 7;
         grid-row-start: 1;
         grid-row-end: 5;
         
-        /* display: flex; */
     }
 
     .search.container{
@@ -235,14 +235,12 @@
         padding-top: 1vh;
         padding-bottom: 1vh;
         padding-left: var(--header-left-align);
-        position: relative;
     }
 
     .search.container .searchicon {
-        outline: white dashed 1px;
         display: block;
         height: 100%;
-        width: 15%;
+        width: 100%;
         flex:.1;
 
         display: flex;
@@ -250,9 +248,13 @@
         justify-content: center;
     }
 
-    .search.container .search-bar {
-        /* outline: white dashed 1px; */
+    #searchicon {
+        fill: var(--search-icon-color);
+        width: var(--search-icon-size);
+        height: var(--search-icon-size);
+    }
 
+    .search.container .search-bar {
         flex: 1;
 
         display: flex;
@@ -261,22 +263,13 @@
 
     }
 
-    #searchicon {
-        width: 40%;
-        height: 40%;
-    }
-
-    #searchicon .path {
-        
-        stroke-width: 2;
-    }
-
     #searchinput {
-        width: 100%;
-        height: 50%;
+        width: 90%;
+        height: 65%;
         border: transparent;
         border-radius: 2em;
         background-color: var(--searchbar-color);
+        padding-left: 10px;
     }
 
 
@@ -288,44 +281,44 @@
     
 
     .header .profile {
-        outline: 1px dashed black;
         grid-column-start: 7;
         grid-column-end: 11;
         grid-row-start: 1;
         grid-row-end: 5;
 
         display: flex;
-        outline: white 1x dashed;
         align-items: center;
         justify-content: flex-end;
-        gap: 5%;
+        /* gap: 5%; */
 
         padding-right: 10% ;
     }
 
     .profile .notification{
-        outline: white 1px dashed;
-        width: 15%;
+        width: 10%;
         height: 70%;
 
         display: flex;
         align-items: center;
         justify-content: center;
+        /* outline: black 1px dashed; */
     }
 
     #bellicon{
-        width: 50%;
-        height: 50%;
+        width: 60%;
+        height: 60%;
+        /* outline: black 1px dashed; */
     }
 
     .profile .user{
-        outline: white 1px dashed;
         width: 15%;
         height: 70%;
 
         display: flex;
         justify-content: center;
         align-items: center;
+        /* outline: black 1px dashed; */
+
     }
 
     #usericon{
@@ -337,6 +330,8 @@
     .profile #username{
         font-weight:bolder;
         font-size: 1.1em;
+        /* outline: black 1px dashed; */
+
     }
 
     
@@ -344,7 +339,6 @@
 /* ----------Greeting-------- */
 
     .header .greeting{
-        outline: 1px dashed black;
         grid-column-start: 1;
         grid-column-end: 6;
         grid-row-start: 5;
@@ -359,7 +353,6 @@
     }
 
     .greeting .user{
-        /* outline: white 1px dashed; */
         height: 90%;
     } 
 
@@ -367,6 +360,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.5vh;
+        color: var(--greeting-text-color);
     }
 
     .greeting-text :first-child{
@@ -411,6 +405,7 @@
     padding-right: var(--projects-left-align);
     padding-bottom: var(--projects-bottom-padding);
     padding-top: var(--projects-top-padding);
+    background-color: var(--projects-background-color);
 }
 
 .projects #title{
@@ -421,13 +416,11 @@
 
 .card.container.grid{
     display: flex;
-    /* outline: 1px white dashed; */
     width: 100%;
     height: 100%;
 }
 
 .col {
-    outline: pink 1px dashed;
     width: 100%;
 
     display: flex;
@@ -436,7 +429,6 @@
 }
 
 .col .item{
-    /* outline: white 1px dashed; */
     background-color: var(--card-background-color);
     border-radius: var(--card-border-radius);
     width: 93%;
@@ -453,12 +445,12 @@
     grid-column-end: 45;
     grid-row-start: 10;
     grid-row-end: 35;
-    /* outline: black 1px dashed; */
 }
 
 .item .text :first-child{
     font-weight: bold;
     font-size: 0.8em;
+    color: var(--card-title-color);
 }
 .item .text :nth-child(2) {
     padding-top: 1%;
@@ -475,7 +467,6 @@
 }
 
 .item .icons{
-    /* outline: black 1px dashed; */
     grid-column-start: 30;
     grid-column-end: 50;
     grid-row-start: 39;
@@ -496,6 +487,7 @@
 
 .announcements {
     padding-left: var(--announcements-left-padding);
+    background-color: var(--annoucements-background-color);
 }
 
 .announcements #title{
@@ -504,7 +496,6 @@
     width: 100%;
     font-weight: bold;
     font-size: 1em;
-    /* outline: dashed 1px black; */
 }
 
 .announcements.container {
@@ -516,10 +507,8 @@
 }
 
 .announcements .card{
-    /* outline: black 1px dashed; */
     width: 90%;
     height: 100%;
-    /* place-self: center; */
     padding: 1vw;
     background-color: var(--card-background-color);
     border-radius: var(--card-border-radius);
@@ -540,13 +529,13 @@
 
 .announcements .card p.title{
     font-weight: bold;
-    font-size: 0.75em;
-    /* outline: black 1px dashed; */
+    font-size: var(--announcements-text-size);
+    color: var(--card-title-color);
 }
 
 
 .announcements .card p.body{
-    font-size: 0.6em;
+    font-size: var(--announcements-desc-size);
     color: var(--card-subtext-color);
 }
 
@@ -554,12 +543,13 @@
 /* -------Trending--------- */
 .trending {
     padding-left: var(--trending-left-padding);
+    background-color: var(--trending-background-color);
 }
 
 .trending.container{
     display: flex;
     flex-direction: column;
-        padding-bottom: var(--trending-bottom-padding);
+    padding-bottom: var(--trending-bottom-padding);
 
 }
 
@@ -570,12 +560,10 @@
     width: 100%;
     font-weight: bold;
     font-size: 1em;
-    outline: 1px dashed black;
 }
 
 .trending .card{
-    outline: black 1px dashed;
-    width: 70%;
+    width: 90%;
     height: 100%;
     background-color: var(--card-background-color);
     border-radius: var(--card-border-radius);
@@ -587,15 +575,94 @@
 }
 
 .trending .card .item{
-    outline: 1px black dashed;
     width: 100%;
     height: 25%;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
     display: flex;
     align-items: center;
+    gap: 1vw;
+
+    padding-left: var(--trending-icon-left-padding);
 }
 
+/* -----------TRENDINGICONS -----------*/
 .trending .card .item .icon{
-    outline: 1px black dashed;
     width: var(--trending-icon-size);
     height: var(--trending-icon-size);
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.trending .card .item:first-child .icon{
+    fill: coral;
+    background-color: lightblue;
+    display: grid;
+    place-items: center;
+}
+
+.trending .card .item:nth-child(2) .icon{
+    fill: white;
+    background-color: rgb(253, 203, 87);
+    display: grid;
+    place-items: center;
+
+}
+
+.trending .card .item:nth-child(3) .icon{
+    fill: orange ;
+    background-color: grey;
+    display: grid;
+    place-items: center;
+
+}
+
+.trending .card .item:nth-child(4) .icon{
+    fill: ;
+    background-color: rgb(237, 174, 185);
+    display: grid;
+    place-items: center;
+
+}
+
+.trending .card .item:first-child .icon svg {
+    width: var(--trending-svg-size);
+    height: var(--trending-svg-size);
+}
+
+.trending .card .item:nth-child(2) .icon svg {
+    width: var(--trending-svg-size);
+    height: var(--trending-svg-size);
+}
+
+.trending .card .item:nth-child(3) .icon svg {
+    width: var(--trending-svg-size);
+    height: var(--trending-svg-size);
+}
+
+.trending .card .item:nth-child(4) .icon svg {
+    width: var(--trending-svg-size);
+    height: var(--trending-svg-size);
+}
+
+/* -----------  TRENDING NAMES---------- */
+
+.trending .card .item .name {
+    width: 70%;
+    height: 100%;
+    padding-top: 0.5vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    color: var(--card-title-color);
+}
+
+.trending .card .item .name .username {
+    font-size: var(--trending-text-size);
+    font-weight: bold;
+}
+
+.trending .card .item .name .desc {
+    font-size: var(--trending-desc-size);
+    color: var(--card-subtext-color);
 }
